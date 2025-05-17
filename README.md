@@ -5,7 +5,14 @@ this tool will automate it!
 
 ## help needed!
 
-Are you a skilled dev looking to contribute? 
+Are you a skilled dev looking to contribute?
+check for open issues and issue a PR!
+
+## setup
+
+1. clone the repo
+2. `pip install -r requirements.txt`
+3. run `python src/main.py`
 
 ## project structure
 
@@ -29,7 +36,3 @@ py-job-tracker/
     ├── job_applications.xlsx
     └── historical/
 ```
-
-## setup & run
-
-
