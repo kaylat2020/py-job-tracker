@@ -1,12 +1,16 @@
-# py-job-tracker
+# pyJobTracker
 
 tired of manually filling out spreadsheets to keep track of job applications?
 this tool will automate it!
 
+## help needed!
+
+Are you a skilled dev looking to contribute? 
+
 ## project structure
 
 ```
-job-tracker/
+py-job-tracker/
 ├── .gitignore             # ignore credentials/token files
 ├── README.md              # project documentation
 ├── requirements.txt       # python dependencies
@@ -25,3 +29,7 @@ job-tracker/
     ├── job_applications.xlsx
     └── historical/
 ```
+
+## setup & run
+
+
