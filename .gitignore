@@ -1,6 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Secrets
 credentials.json
 token.json
+
+# Outputs
 outputs/
+*.xlsx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

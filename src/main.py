@@ -1,45 +1,13 @@
-import os.path
 import base64
 import re
-import pandas as pd
 from email import message_from_bytes
 from datetime import datetime
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+from tqdm import tqdm
 
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
-
-def authenticate_gmail():
-    creds = None
-    try:
-        if os.path.exists('token.json'):
-            creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-        
-        if not creds or not creds.valid:
-            if creds and creds.expired and creds.refresh_token:
-                creds.refresh(Request())
-            else:
-                if not os.path.exists('credentials.json'):
-                    raise FileNotFoundError(
-                        "credentials.json not found. Please download from Google Cloud Console"
-                    )
-                flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-                creds = flow.run_local_server(port=0)
-            
-            with open('token.json', 'w') as token:
-                token.write(creds.to_json())
-        
-        return build('gmail', 'v1', credentials=creds)
-    except Exception as e:
-        print(f"Authentication failed: {str(e)}")
-        return None
-
-def get_messages(service, query):
-    results = service.users().messages().list(userId='me', q=query, maxResults=100).execute()
-    messages = results.get('messages', [])
-    return messages
+# Local imports
+from gmail_client import authenticate_gmail, get_messages
+from config import STATUS_KEYWORDS
+from exporters.excel import export_to_excel
 
 def parse_message(service, msg_id):
     msg = service.users().messages().get(userId='me', id=msg_id, format='raw').execute()
@@ -67,58 +35,45 @@ def parse_message(service, msg_id):
     }
 
 def extract_info(msg):
+    """Categorize emails with configurable keywords"""
     body = msg['body'].lower()
     subject = msg['subject'].lower()
 
-    company_match = re.search(r'at\s+([A-Z][a-zA-Z0-9&\-. ]+)', msg['subject'], re.IGNORECASE)
+    company_match = re.search(r'at\s+([A-Z][a-zA-Z0-9&\-. ]+)', 
+                            msg['subject'], re.IGNORECASE)
     company = company_match.group(1).strip() if company_match else msg['from']
 
     status = 'unknown'
-    for keyword, label in {
-        'thank you for applying': 'submitted',
-        'we received your application': 'submitted',
-        'we regret to inform': 'rejected',
-        'unfortunately': 'rejected',
-        'interview': 'interview',
-        'schedule a call': 'interview',
-        'move forward': 'interview',
-        'offer': 'offer',
-        'accepted': 'offer',
-        'rejected': 'rejected',
-    }.items():
-        if keyword in body or keyword in subject:
-            status = label
+    for status_type, keywords in STATUS_KEYWORDS.items():
+        if any(keyword in body or keyword in subject for keyword in keywords):
+            status = status_type
             break
-
-    try:
-        date_obj = datetime.strptime(msg['date'][:25], "%a, %d %b %Y %H:%M:%S")
-    except Exception:
-        date_obj = datetime.now()
 
     return {
         'Company': company,
-        'Submit Date': date_obj.strftime('%Y-%m-%d'),
+        'Date': msg['date'],
         'Status': status,
         'Subject': msg['subject']
     }
 
 def main():
     service = authenticate_gmail()
-    search_query = 'subject:(application OR interview OR rejected OR offer OR position)'
-    messages = get_messages(service, search_query)
+    if not service:
+        return  # Exit if auth failed
+
+    query = 'subject:(application OR interview OR rejected OR offer OR position)'
+    messages = get_messages(service, query)
 
     print(f"Found {len(messages)} messages matching the query.")
 
     extracted_data = []
-    for i, msg in enumerate(messages):
-        print(f"Parsing message {i+1}/{len(messages)}...")
+    for msg in tqdm(messages, desc="Processing emails"):
         parsed = parse_message(service, msg['id'])
         info = extract_info(parsed)
         extracted_data.append(info)
 
-    df = pd.DataFrame(extracted_data)
-    df.to_excel('job_applications.xlsx', index=False)
-    print("Exported data to job_applications.xlsx")
+    export_to_excel(extracted_data)
+    print("Export completed.")
 
 if __name__ == '__main__':
     main()
