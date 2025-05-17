@@ -1,10 +1,12 @@
 import base64
 import re
+import os
+from pathlib import Path
 from email import message_from_bytes
 from datetime import datetime
 from tqdm import tqdm
 
-# Local imports
+# local imports
 from gmail_client import authenticate_gmail, get_messages
 from config import STATUS_KEYWORDS
 from exporters.excel import export_to_excel
@@ -59,7 +61,7 @@ def extract_info(msg):
 def main():
     service = authenticate_gmail()
     if not service:
-        return  # Exit if auth failed
+        return  # exit if auth failed
 
     query = 'subject:(application OR interview OR rejected OR offer OR position)'
     messages = get_messages(service, query)
@@ -72,7 +74,12 @@ def main():
         info = extract_info(parsed)
         extracted_data.append(info)
 
-    export_to_excel(extracted_data)
+    # save to Excel in the outputs directory
+    output_dir = Path("outputs")
+    output_dir.mkdir(exist_ok=True)  # create directory if it doesn't exist
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S") # add timestamp
+    output_path = output_dir / f"job_applications_{timestamp}.xlsx"
+    export_to_excel(extracted_data, filename=output_path)
     print("Export completed.")
 
 if __name__ == '__main__':
