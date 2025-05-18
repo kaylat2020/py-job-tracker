@@ -5,11 +5,13 @@ from pathlib import Path
 from email import message_from_bytes
 from datetime import datetime
 from tqdm import tqdm
+import argparse
 
 # local imports
 from gmail_client import authenticate_gmail, get_messages
 from config import STATUS_KEYWORDS
 from exporters.excel import export_to_excel
+from exporters.csv import export_to_csv
 
 def parse_message(service, msg_id):
     msg = service.users().messages().get(userId='me', id=msg_id, format='raw').execute()
@@ -41,7 +43,7 @@ def extract_info(msg):
     body = msg['body'].lower()
     subject = msg['subject'].lower()
 
-    company_match = re.search(r'at\s+([A-Z][a-zA-Z0-9&\-. ]+)', 
+    company_match = re.search(r'at\s+([A-Z][a-zA-Z0-9&\-. ]+)',
                             msg['subject'], re.IGNORECASE)
     company = company_match.group(1).strip() if company_match else msg['from']
 
@@ -63,6 +65,10 @@ def main():
     if not service:
         return  # exit if auth failed
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--format', choices=['csv', 'excel'], default='excel')
+    args = parser.parse_args()
+
     query = 'subject:(application OR interview OR rejected OR offer OR position)'
     messages = get_messages(service, query)
 
@@ -78,9 +84,17 @@ def main():
     output_dir = Path("outputs")
     output_dir.mkdir(exist_ok=True)  # create directory if it doesn't exist
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S") # add timestamp
-    output_path = output_dir / f"job_applications_{timestamp}.xlsx"
-    export_to_excel(extracted_data, filename=output_path)
-    print("Export completed.")
+
+    exporters = {
+        'excel': (export_to_excel, 'xlsx'),
+        'csv': (export_to_csv, 'csv')
+    }
+
+    export_func, ext = exporters[args.format]
+    output_path = output_dir / f"job_applications_{timestamp}.{ext}"
+    export_func(extracted_data, filename=output_path)
+
+    print(f"Export completed: {output_path.name}")
 
 if __name__ == '__main__':
     main()
