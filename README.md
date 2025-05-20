@@ -1,18 +1,37 @@
-# pyJobTracker
+# Job Application Tracker 📊✉️
 
-tired of manually filling out spreadsheets to keep track of job applications?
-this tool will automate it!
+[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-## help needed!
+email analyzer that tracks job applications, rejections, and interviews.
 
-Are you a skilled dev looking to contribute?
-check for open issues and issue a PR!
+## 🚀 quick start
 
-## setup
+```bash
+git clone https://github.com/kaylat2020/py-job-tracker.git
+cd py-job-tracker
+pip install -e .
+py-job-tracker --help
+```
 
-1. clone the repo
-2. `pip install -r requirements.txt`
-3. run `python src/main.py`
+## 🤝 help wanted
+
+We welcome contributions! Please read our:
+
+- [Contribution Guidelines](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+**Maintainer**: @kaylat2020
+**Response Time**: I typically review PRs within 3 business days !
+
+## 🛠️ development setup
+
+See the [development guide](docs/DEVELOPMENT.md) for advanced configuration.
+
+## 🌟 contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## project structure
 
