@@ -1,7 +1,6 @@
 # Job Application Tracker 📊✉️
 
-[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions) [![All Contributors](https://img.shields.io/github/all-contributors/kaylat2020/py-job-tracker?color=ee8449&style=flat-square)](🌟 contributors) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 email analyzer that tracks job applications, rejections, and interviews.
 
@@ -30,7 +29,13 @@ See the [development guide](docs/DEVELOPMENT.md) for advanced configuration.
 
 ## 🌟 contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## project structure
