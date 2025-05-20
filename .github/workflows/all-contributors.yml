@@ -1,18 +1,22 @@
 name: All Contributors
 on:
   pull_request_target:
-    types: [closed]  
-  issues:
     types: [closed]
+
 jobs:
-  add-contributor:
+  contributors:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: all-contributors/all-contributors-action@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMIT_MESSAGE: "docs: update contributors"
-          CONFIG_FILE: ".all-contributorsrc"
+      - name: Install All Contributors CLI
+        run: npm install -g all-contributors-cli
+      - name: Update Contributors
+        run: npx all-contributors add ${{ github.event.pull_request.user.login }} code
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "docs: update contributors [skip ci]"
+          git push
