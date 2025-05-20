@@ -1,5 +1,7 @@
 # Job Application Tracker 📊✉️
 
+*some links will be broken/blank for a bit, I'm working on it chief 🫡*
+
 [![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions) [![All Contributors](https://img.shields.io/github/all-contributors/kaylat2020/py-job-tracker?color=ee8449&style=flat-square)](🌟 contributors) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 email analyzer that tracks job applications, rejections, and interviews.
@@ -9,6 +11,7 @@ email analyzer that tracks job applications, rejections, and interviews.
 ```bash
 git clone https://github.com/kaylat2020/py-job-tracker.git
 cd py-job-tracker
+pip install setuptools
 pip install -e .
 py-job-tracker --help
 ```
@@ -29,7 +32,7 @@ See the [development guide](docs/DEVELOPMENT.md) for advanced configuration.
 
 ## 🌟 contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
