@@ -1,18 +1,19 @@
 name: All Contributors
 on:
   pull_request_target:
-    types: [closed]  
+    types: [closed]
   issues:
     types: [closed]
+
 jobs:
-  add-contributor:
+  update-contributors:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: all-contributors/all-contributors-action@v1
+      - uses: all-contributors@2.17.1/all-contributors-cli@v1.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMIT_MESSAGE: "docs: update contributors"
           CONFIG_FILE: ".all-contributorsrc"
+          COMMIT_MESSAGE: "docs: update contributors"

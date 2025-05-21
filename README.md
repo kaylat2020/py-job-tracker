@@ -3,33 +3,36 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+*\*\*some links will be broken/blank for a bit, I'm working on it chief 🫡*
+
+[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions) [![All Contributors](https://img.shields.io/github/all-contributors/kaylat2020/py-job-tracker?color=ee8449&style=flat-square)](🌟 contributors) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 email analyzer that tracks job applications, rejections, and interviews.
 
 ## 🚀 quick start
 
 ```bash
-git clone https://github.com/kaylat2020/py-job-tracker.git
-cd py-job-tracker
+# install in dev mode
 pip install -e .
-py-job-tracker --help
+
+# run the tool
+job-tracker --help
 ```
 
 ## 🤝 help wanted
 
-We welcome contributions! Please read our:
+contributions welcome !
 
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 
 **Maintainer**: @kaylat2020
-**Response Time**: I typically review PRs within 3 business days !
+
+**Response Time**: I typically review PRs within 3 business days
 
 ## 🛠️ development setup
 
-See the [development guide](docs/DEVELOPMENT.md) for advanced configuration.
+See the [development guide](docs/DEVELOPMENT.md) for advanced configuration. **
 
 ## 🌟 contributors
 
