@@ -1,11 +1,12 @@
 # Job Application Tracker 📊✉️
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-✨)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/kaylat2020/py-job-tracker/actions)
 
 *\*\*some links will be broken/blank for a bit, I'm working on it chief 🫡*
-
-[![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/kaylat2020/py-job-tracker/actions) [![All Contributors](https://img.shields.io/github/all-contributors/kaylat2020/py-job-tracker?color=ee8449&style=flat-square)](🌟 contributors) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 email analyzer that tracks job applications, rejections, and interviews.
 
@@ -23,6 +24,8 @@ job-tracker --help
 
 contributions welcome !
 
+(I'm still learning so suggestions are welcome too)
+
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 
@@ -36,21 +39,23 @@ See the [development guide](docs/DEVELOPMENT.md) for advanced configuration. **
 
 ## project structure
 
-```
+```tree
 py-job-tracker/
 ├── .gitignore             # ignore credentials/token files
+├── docs                   # dev documentation - TODO
 ├── README.md              # project documentation
 ├── requirements.txt       # python dependencies
-├── credentials.json       # Google API credentials (IGNORE IN VERSION CONTROL)
+├── credentials.json       # Google API credentials (ignore)
 ├── src/
 │   ├── __init__.py
 │   ├── main.py            # current script
 │   ├── gmail_client.py    # Gmail API wrapper
 │   ├── config.py          # constants and configurations - TODO
-│   └── exporters/         # different export formats - TODO
+│   └── exporters/         # different export formats
 │       └── excel.py
+│       └── csv.py
 ├── tests/
-│   ├── test_parser.py
+│   ├── test_parser.py     # pytests - TODO
 │   └── test_client.py
 └── outputs/               # generated reports
     ├── job_applications.xlsx
@@ -60,7 +65,6 @@ py-job-tracker/
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove -->
 <!-- prettier-ignore-start -->
