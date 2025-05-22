@@ -1,7 +1,8 @@
-name: All Contributors
+name: Update Contributors
 on:
   pull_request_target:
     types: [closed]
+    branches: [main]
   issues:
     types: [closed]
 
@@ -10,10 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    # suppress status checks
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v4
       - uses: all-contributors@2.17.1/all-contributors-cli@v1.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: ".all-contributorsrc"
-          COMMIT_MESSAGE: "docs: update contributors"
+          COMMIT_MESSAGE: "docs: update contributors [skip ci]"
+      - name: Push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --ff-only
+          git push
