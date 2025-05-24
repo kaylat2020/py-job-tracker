@@ -1,18 +1,16 @@
 # Job Application Tracker 📊✉️
+
+Email analyzer that tracks and exports job applications, rejections, interviews, and offers.
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-
 [![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/kaylat2020/py-job-tracker/actions)
-
 [![License](https://img.shields.io/github/license/kaylat2020/py-job-tracker)](https://github.com/kaylat2020/py-job-tracker/blob/main/LICENSE)
-
 ![Commit Activity](https://img.shields.io/github/commit-activity/w/kaylat2020/py-job-tracker?logo=git)
 
 *\*\*some links will be broken/blank for a bit, I'm working on it chief 🫡*
 
-email analyzer that tracks job applications, rejections, and interviews.
 
 ## 🚀 Quick Start
 
