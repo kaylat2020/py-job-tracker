@@ -6,11 +6,15 @@
 
 [![CI Status](https://github.com/kaylat2020/py-job-tracker/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/kaylat2020/py-job-tracker/actions)
 
+[![License](https://img.shields.io/github/license/kaylat2020/py-job-tracker)](https://github.com/kaylat2020/py-job-tracker/blob/main/LICENSE)
+
+![Commit Activity](https://img.shields.io/github/commit-activity/w/kaylat2020/py-job-tracker?logo=git)
+
 *\*\*some links will be broken/blank for a bit, I'm working on it chief 🫡*
 
 email analyzer that tracks job applications, rejections, and interviews.
 
-## 🚀 quick start
+## 🚀 Quick Start
 
 ```bash
 # install in dev mode
@@ -20,9 +24,9 @@ pip install -e .
 job-tracker --help
 ```
 
-## 🤝 help wanted
+## 🤝 Help Wanted
 
-contributions welcome !
+Contributions are welcome!
 
 (I'm still learning so suggestions are welcome too)
 
@@ -33,11 +37,11 @@ contributions welcome !
 
 **Response Time**: I typically review PRs within 3 business days
 
-## 🛠️ development setup
+## 🛠️ Development Setup
 
 See the [development guide](docs/DEVELOPMENT.md) for advanced configuration. **
 
-## project structure
+## Project Structure
 
 ```tree
 py-job-tracker/
@@ -82,4 +86,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
