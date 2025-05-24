@@ -1,5 +1,8 @@
 # Contribution Guidelines
 
+⚠️ Be sure to follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines ! 
+This will make the progress easier to manage down the line.
+
 ## 🛠️ setting up
 
 1. fork repository
