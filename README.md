@@ -1,6 +1,6 @@
 # Job Application Tracker 📊✉️
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-✨)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
@@ -77,6 +77,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ziggens"><img src="https://avatars.githubusercontent.com/u/73198537?v=4?s=100" width="100px;" alt="Zach"/><br /><sub><b>Zach</b></sub></a><br /><a href="https://github.com/kaylat2020/py-job-tracker/commits?author=Ziggens" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Sky313"><img src="https://avatars.githubusercontent.com/u/70432145?v=4?s=100" width="100px;" alt="Surya Govindarajan"/><br /><sub><b>Surya Govindarajan</b></sub></a><br /><a href="https://github.com/kaylat2020/py-job-tracker/commits?author=Sky313" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
